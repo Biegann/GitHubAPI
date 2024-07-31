@@ -8,7 +8,7 @@ The GitHub API Client is a Java application that retrieves information about a G
 
 ### Prerequisites
 
-1. **Java 17+**: Make sure you have Java 17 or a later version installed on your machine.
+1. **Java 21+**: Make sure you have Java 21 or a later version installed on your machine.
 2. **Maven**: Ensure Maven is installed to build the project.
 
 ### Steps to Run the Application
@@ -42,7 +42,7 @@ The GitHub API Client is a Java application that retrieves information about a G
 
 ## Dependencies
 
-- **Java 17+**
+- **Java 21+**
 - **Maven**
 
 ### Libraries
