@@ -16,7 +16,7 @@ The GitHub API Client is a Java application that retrieves information about a G
 1. **Clone the Repository**
 
     ```bash
-    git clone https://github.com/your-repo/GitHubAPI.git
+    git clone https://github.com/Biegann/GitHubAPI
     cd GitHubAPI
     ```
 
