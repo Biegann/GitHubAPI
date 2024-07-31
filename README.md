@@ -11,12 +11,13 @@ The application retrieves information about a GitHub user's repositories that ar
     ```
 3. Run the application:
     ```sh
-    java -cp target/GitHubAPI-1.0-SNAPSHOT.jar GitHubApiClient
+    java -jar target/GitHubAPI-1.0-SNAPSHOT-jar-with-dependencies.jar
+
     ```
 4. In the application code, change `username` to the GitHub username whose repositories you want to fetch.
 
 ## Dependencies
-- Java 11+
+- Java 17+
 - Maven
 - Libraries:
   - Jackson
