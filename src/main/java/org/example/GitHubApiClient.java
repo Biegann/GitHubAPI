@@ -32,7 +32,6 @@ public class GitHubApiClient {
 
     public static JsonNode getUserRepos(String username) throws IOException, InterruptedException {
         String url = "https://api.github.com/users/" + username + "/repos";
-
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))
                 .header("Accept", "application/json")
@@ -40,11 +39,19 @@ public class GitHubApiClient {
 
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-        if (response.statusCode() == 404) {
+        int statusCode = response.statusCode();
+        if (statusCode == 404) {
             return createErrorResponse(404, "The specified user does not exist.");
+        } else if (statusCode != 200) {
+            return createErrorResponse(statusCode, "Failed to retrieve data from GitHub.");
         }
 
         JsonNode repos = objectMapper.readTree(response.body());
+        // Check if the response body is empty or an error
+        if (repos.isEmpty() || repos.isArray() && repos.size() == 0) {
+            return createErrorResponse(404, "The specified user does not have any repositories or does not exist.");
+        }
+
         return filterRepos(repos);
     }
 
